@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    category_name = models.CharField(max_length=250)
+    category_name = models.CharField(max_length=50)
     def __str__(self):
         return self.category_name
 
@@ -10,10 +10,10 @@ class Category(models.Model):
 
 #Таблица продуктов
 class Product(models.Model):
-    product_name = models.CharField(max_length=150)
+    product_name = models.CharField(max_length=50)
     product_price = models.FloatField()
-    product_description = models.TextField()
-    product_photo = models.ImageField()
+    product_specification = models.TextField()
+    product_image = models.ImageField()
     product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Product(models.Model):
 class UserCart(models.Model):
     user_id = models.IntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+    value = models.IntegerField()
 
 
 

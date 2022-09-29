@@ -1,5 +1,5 @@
 """
-WSGI config for sanyamanager project.
+WSGI config for sanya_store project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sanyamanager.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sanya_store.settings')
 
 application = get_wsgi_application()

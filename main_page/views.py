@@ -40,8 +40,17 @@ def get_user_cart(request):
     total = sum([i.product.product_price*i.quantity for i in user_cart])
     return render(request, 'user_cart.html', {'cart': user_cart, 'total': total})
 
-def delete(request):
-    return render(request, '')
+def delete(request, pk):
+    item = UserCart.objects.get(id=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('/')
+
+    context = {'item': item}
+    return render(request, 'korzina/delete.html', context)
+
+
 
 
 def about(request):
